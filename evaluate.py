@@ -89,7 +89,7 @@ if __name__ == '__main__':
     args = get_args()
     if args.mode == 'build':
         print('building...')
-        config = yaml.load(open(args.config_path))
+        config = yaml.safe_load(open(args.config_path))
         images = tf.placeholder(dtype=tf.float32, shape=[None, config['image_size'], config['image_size'], 3], name='input_image')
         train_phase_dropout = tf.placeholder(dtype=tf.bool, shape=None, name='train_phase')
         train_phase_bn = tf.placeholder(dtype=tf.bool, shape=None, name='train_phase_last')

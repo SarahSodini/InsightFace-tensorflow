@@ -38,9 +38,10 @@ The implementation referred to [the official implementation in mxnet](https://gi
 ## Running Environment
 
 - python 3.6 
-- scipy, numpy (Anaconda 3 recommended)
+- scipy, numpy (Anaconda 3 recommended) (Note by Jakob: Used scipy 1.0 and numpy 1.16.4 due to deprecated functions in newer versions)
 - tensorflow 1.7.0
 - mxnet 1.3.1 (only needed when reading mxrec file)
+- pyyaml - krävs för att läsa yaml-filer i bl.a. train_softmax.py
 
 ## Usage of Pretrained Model
 
@@ -65,6 +66,8 @@ python evaluate.py
 --config_path=./configs/config_ms1m_100.yaml 
 --model_path=$DIRECTORY_TO_PRETRAINED_MODEL$/best-m-150000
 ```
+
+python evaluate.py --config_path=./configs/config_ms1m_100.yaml --model_path=./models/config_ms1m_100_1006k/best-m-1006000
 
 This will evaluate the pretrained model on validation datasets specified in the config file. If you want to evaluate the model on other validation dataset, you can specify it by --val_data as following:
 
@@ -115,6 +118,8 @@ python generateTFRecord.py
 --save_path=$DIRECTORY_TO_SAVE_TFRECORD_FILE$/xxx.tfrecord
 ```
 
+python generateTFRecord.py --mode=folders --image_size=112 --read_dir=./casia-webface/mini/data  --save_path=./casia-webface/mini/casia-webface-mini.tfrecord
+
 Here, the read_dir should be the directory to your own face images, where images to one person are saved in one folder. The directory should have a structure like this:
 
 ```
@@ -139,6 +144,8 @@ To train your own model with softmax, firstly you should prepare a config file l
 ```
 python train_softmax.py --config_path=./configs/config_ms1m_100.yaml
 ```
+
+python train_softmax.py --config_path=./configs/config_casia_webface_mini.yaml
 
 ### Finetune with Softmax
 

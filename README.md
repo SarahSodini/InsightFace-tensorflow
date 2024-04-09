@@ -42,6 +42,7 @@ The implementation referred to [the official implementation in mxnet](https://gi
 - tensorflow 1.7.0
 - mxnet 1.3.1 (only needed when reading mxrec file)
 - pyyaml - krävs för att läsa yaml-filer i bl.a. train_softmax.py
+- pillow
 
 ## Usage of Pretrained Model
 

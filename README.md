@@ -38,7 +38,7 @@ The implementation referred to [the official implementation in mxnet](https://gi
 ## Running Environment
 
 - python 3.6 
-- scipy, numpy (Anaconda 3 recommended) (Note by Jakob: Used scipy 1.0 and numpy 1.16.4 due to deprecated functions in newer versions)
+- scipy, numpy (Anaconda 3 recommended) (Note by Jakob: Used scipy 1.1 and numpy 1.16.4 due to deprecated functions in newer versions)
 - tensorflow 1.7.0
 - mxnet 1.3.1 (only needed when reading mxrec file)
 - pyyaml - krävs för att läsa yaml-filer i bl.a. train_softmax.py

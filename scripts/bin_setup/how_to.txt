@@ -1,0 +1,9 @@
+The guide (1): https://gist.github.com/fengyuentau/53f4200b3f721943f8a714433b9cc685
+insightface github with old files mentioned in guide (2): https://github.com/deepinsight/insightface/tree/f92bf1e48470fdd567e003f196f8ff70461f7a20
+
+1. Download dataset and put it in repo as described in guide
+2. clone repo with old files and checkout to commit f92bf1e.
+3. install facenet: pip install facenet
+4. try to run: python align_dataset_mtcnn.py ../../datasets/DemogPairs_250x250/ ../../datasets/DemogPairs_250x250-aligned/
+	where ../../datasets/DemogPairs_250x250/ is the path to the input and ../../datasets/DemogPairs_250x250-aligned/ is path to the output
+

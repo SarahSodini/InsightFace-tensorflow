@@ -70,6 +70,7 @@ python evaluate.py
 ```
 
 python evaluate.py --config_path=./configs/config_ms1m_100.yaml --model_path=./models/config_ms1m_100_1006k/best-m-1006000
+python evaluate.py --config_path=./configs/config_vggface2_balanced.yaml --model_path=./output/vggface2/20240422-233603/models/best-m-34000
 
 This will evaluate the pretrained model on validation datasets specified in the config file. If you want to evaluate the model on other validation dataset, you can specify it by --val_data as following:
 
@@ -120,7 +121,8 @@ python generateTFRecord.py
 --save_path=$DIRECTORY_TO_SAVE_TFRECORD_FILE$/xxx.tfrecord
 ```
 
-python generateTFRecord.py --mode=folders --image_size=112 --read_dir=./casia-webface/mini/data  --save_path=./casia-webface/mini/casia-webface-mini.tfrecord
+python generateTFRecord.py --mode=folders --image_size=112 --read_dir=./DemogPairs/train  --save_path=./DemogPairs/demog-pairs-training.tfrecord
+python generateTFRecord.py --mode=folders --image_size=112 --read_dir=./VGGface2/unbalanced  --save_path=./VGGface2/vggface2-unbalanced.tfrecord
 
 Here, the read_dir should be the directory to your own face images, where images to one person are saved in one folder. The directory should have a structure like this:
 
@@ -147,7 +149,7 @@ To train your own model with softmax, firstly you should prepare a config file l
 python train_softmax.py --config_path=./configs/config_ms1m_100.yaml
 ```
 
-python train_softmax.py --config_path=./configs/config_casia_webface_mini.yaml
+python train_softmax.py --config_path=./configs/config_vggface2.yaml
 
 ### Finetune with Softmax
 
@@ -156,3 +158,31 @@ To finetune a pretrained model with your own data, you should prepare a finetune
 ```
 python finetune_softmax.py --config_path=./configs/config_finetune.yaml
 ```
+
+
+### Generate bin commands
+#### Testing
+python dir2lst.py VGGface2\testing\mixed_testing > VGGface2\testing\mixed_testing\vggface2_mixed_testing.lst
+python face2rec2.py VGGface2\testing\mixed_testing
+python lfw2pack.py --data-dir=VGGface2\testing\mixed_testing --output=VGGface2\testing\mixed_testing\vggface2_mixed_testing.bin
+
+python dir2lst.py VGGface2\testing\1_test > VGGface2\testing\1_test\vggface2_1_test.lst
+python face2rec2.py VGGface2\testing\1_test
+python lfw2pack.py --data-dir=VGGface2\testing\1_test --output=VGGface2\testing\1_test\vggface2_1_test.bin
+
+python dir2lst.py VGGface2\testing\3_test > VGGface2\testing\3_test\vggface2_3_test.lst
+python face2rec2.py VGGface2\testing\3_test
+python lfw2pack.py --data-dir=VGGface2\testing\3_test --output=VGGface2\testing\3_test\vggface2_3_test.bin
+
+#### Validation
+python dir2lst.py VGGface2\validation\mixed_val > VGGface2\validation\mixed_val\vggface2_mixed_val.lst
+python face2rec2.py VGGface2\validation\mixed_val
+python lfw2pack.py --data-dir=VGGface2\validation\mixed_val --output=VGGface2\validation\mixed_val\vggface2_mixed_val.bin
+
+python dir2lst.py VGGface2\validation\1_val > VGGface2\validation\1_val\vggface2_1_val.lst
+python face2rec2.py VGGface2\validation\1_val
+python lfw2pack.py --data-dir=VGGface2\validation\1_val --output=VGGface2\validation\1_val\vggface2_1_val.bin
+
+python dir2lst.py VGGface2\validation\3_val > VGGface2\validation\3_val\vggface2_3_val.lst
+python face2rec2.py VGGface2\validation\3_val
+python lfw2pack.py --data-dir=VGGface2\validation\3_val --output=VGGface2\validation\3_val\vggface2_3_val.bin

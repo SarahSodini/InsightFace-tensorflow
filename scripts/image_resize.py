@@ -23,8 +23,8 @@ def resize_images(input_folder, output_folder, target_size):
                     img_resized.save(output_path)
                     print(f"Resized {os.path.join(root, filename)} and saved as {output_path}")
 
-input_folder = "../data/DemogPairs/DemogPairs_250x250"
-output_folder = "../data/DemogPairs/DemogPairs_180x180"
-target_size = (180, 180)
+input_folder = "..\data\DemogPairs\DemogPairs_250x250"
+output_folder = "..\data\DemogPairs\DemogPairs_112x112"
+target_size = (112, 112)
 
 resize_images(input_folder, output_folder, target_size)

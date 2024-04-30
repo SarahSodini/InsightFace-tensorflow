@@ -113,7 +113,7 @@ if __name__ == '__main__':
             else:
                 val_data[os.path.basename(args.val_data)] = args.val_data
             for k, v in val_data.items():
-                imgs, imgs_f, issame = load_bin(v, config['image_size'])
+                imgs, imgs_f, issame = load_bin(v, config['image_size'])              
                 print('forward running...')
                 embds_arr = run_embds(sess, imgs, batch_size, config['image_size'], args.train_mode, embds, images, train_phase_dropout, train_phase_bn)
                 embds_f_arr = run_embds(sess, imgs_f, batch_size, config['image_size'], args.train_mode, embds, images, train_phase_dropout, train_phase_bn)

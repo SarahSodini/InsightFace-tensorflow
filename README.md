@@ -145,7 +145,7 @@ To train your own model with softmax, firstly you should prepare a config file l
 python train_softmax.py --config_path=./configs/config_ms1m_100.yaml
 ```
 
-python train_softmax.py --config_path=./configs/config_casia_webface_mini.yaml
+python train_softmax.py --config_path=./configs/config_casia_webface.yaml
 
 ### Finetune with Softmax
 

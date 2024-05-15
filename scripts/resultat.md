@@ -39,6 +39,8 @@ KS:
 - Är det korrekt tänkt?
 - Vi kan utläsa att för 'all' jämförelsen som görs mellan samtliga resultat av respektive dataset har en 93.8% chans att komma från samma distribution, vilket vi anser antagligen tyder på att modellerna inte skiljer sig speciellt mycket beroende på vilket dataset de är tränade på. 
 - utvärderar man standardavvikelsena på samma sätt eller behöver vi göra ett annat statistiskt test?
+- Vad innebär alfa, och hur väljer man alfa?
+- På wikipedia står det att nollhypotesen avfärdas om följande gäller för stora n och m: ![alt text](image.png) Vad gills som stora n och m?
 
 Friedman:
 - är det korrekt tänkt att samples för varje test är de olika resultaten från mixed, uniform 1 och 3?

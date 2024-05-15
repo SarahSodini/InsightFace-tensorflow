@@ -47,4 +47,6 @@ Friedman:
 Kommentar under tabell 3.2.3:
 - Vi har sett till att varje person bara finns med i antingen traininng, validation eller test dataseten. Det är dock så att i test och validation datasetten finns det personer som både är med i mixed och i uniform1/uniform3. Är detta ett stort problem? Vi kommer nog inte hinna ändra på det, utan får väll skriva om det som en felkälla isåfall. 
 
+Om CNN-delen (2.2.1.1) under background:
+- Behöver vi ens ha med den delen. Vi har typ bara med den delen för att ArcFace är en CNN och vi refererar till att ArcFace är ett CNN. Hur djupt behöver vi gå in på ArcFace, hur den funkar etc.?
 
